@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiang.testinterface.mapper.InterMapper">
+    
+    <resultMap id="result" type="com.jiang.testinterface.entity.TestDemo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="pid" jdbcType="INTEGER" property="pid"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+<!--        <result column="is_deleted" jdbcType="TINYINT" property="isDeleted"/>-->
+    </resultMap>
+
+    <!--public List<TestDemo> queryAll();-->
+    <select id="queryAll" resultType="com.jiang.testinterface.entity.TestDemo">
+        select id,name,pid,icon from testInterface
+        order by id asc;
+    </select>
+
+<!--    Integer count();-->
+    <select id="count" resultType="java.lang.Integer">
+        select count(*)
+        from testInterface
+    </select>
+</mapper>
